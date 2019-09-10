@@ -11,9 +11,6 @@ export default {
     msg: String
   },
   mounted() {
-    this.$fetch.get(this.$api.ME).then(res => {
-       
-    })
   }
 }
 </script>
