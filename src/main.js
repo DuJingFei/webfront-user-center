@@ -4,6 +4,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './plugins/element.js'
+import './plugins/filters.js'
 import './plugins/fetch.js';
 import './plugins/api';
 import './assets/css/index.less'

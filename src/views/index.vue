@@ -7,7 +7,9 @@
              <user-growth/>
            </section>
            <aside class="area-right">
-             3434
+             <boss/>
+             <contribute/>
+             <knowledge/>
           </aside>
        </div>
     </div>
@@ -16,12 +18,18 @@
 import UserBasic from '@/components/common/UserBasic';
 import ProductInfo from '@/components/common/ProductInfo';
 import UserGrowth from '@/components/common/UserGrowth';
+import Boss from '@/components/common/Boss';
+import Contribute from '@/components/common/Contribute';
+import Knowledge from '@/components/common/Knowledge';
 export default {
    name:'index-default',
    components: {
        UserBasic,
        ProductInfo,
-       UserGrowth
+       UserGrowth,
+       Boss,
+       Contribute,
+       Knowledge
    }
 }
 </script>
@@ -33,12 +41,12 @@ export default {
       margin: 20px auto;
       .area-left {
         width: 726px;
-        display: inline-block;
         margin-right: 14px;
+        float: left;
       }
       .area-right {
           width: 416px;
-          display: inline-block;
+          float: left;
       }
    }
 }

@@ -16,6 +16,7 @@
             <a style="color:#5582F3;margin-left:14px;" href="/">前往企业账号中心</a>
         </p>
         <el-button class="btn-primary">编辑</el-button>
+        <el-button class="btn-primary">完善信息</el-button>
      </article>
   </div>
 </template>
