@@ -9,7 +9,7 @@ module.exports = {
 
     proxy: {
       '/api': {
-          target: 'http://172.25.1.243:47778/api',
+          target: 'http://localhost:6741/',
           changeOrigin: true,
           ws: true,
           xfwd: true,

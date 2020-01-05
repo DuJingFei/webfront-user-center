@@ -16,7 +16,6 @@ axios.defaults.xsrfCookieName = "CSRF-TOKEN";
 axios.defaults.xsrfHeaderName = "X-CSRF-TOKEN";
 
 function _handleError(errorCode, errorMessage) {
-    debugger
     switch (errorCode) {
         /* 用户未登录 */
         case 401:
@@ -71,25 +70,6 @@ function _handleError(errorCode, errorMessage) {
 /* 浏览器端API请求返回值统一处理
  * 服务端渲染只能在asyncData和fetch上做redirect或者使用@nuxtjs/axios的OnResponset
  */
-axios.interceptors.response.use(function(response) {
-    if (!process.server) {
-        if(response.data && !response.data.errorCode) {
-           ConfirmLogin.setLastOperationTime()
-        }
-        _buildCapchas(response)
-    }
-    if (response.config && response.config.dealMessage) {
-        //不需要统一处理报错的接口
-    } else {
-        if (response.data && response.data.errorCode && response.data.errorCode !== 200) {
-            _handleError(response.data.errorCode, response.data.message)
-        }
-    }
-    return response;
-}, function(error) {
-    _handleError(error.response.status)
-    return Promise.reject();
-});
 
 function _buildCapchas(response) {
     var uri = (response.config.method + ":" + _removeQueryParams(response.config.url)).toLowerCase();
@@ -113,7 +93,7 @@ function _buildRestApi(url, data) {
     for (let field in data) {
         if (url.includes(`{${field}}`)) {
             url = url.replace(`{${field}}`, data[field])
-            delete data[field]
+          //  delete data[field]
         }
     }
     return url
@@ -149,6 +129,8 @@ const fetch = {
         let queryData = _.cloneDeep(originQueryData);
         url = _buildRestApi(url, queryData)
         return new Promise((resolve, reject) => {
+
+            /*
             if (queryData && Object.keys(queryData).length > 0) {
                 if (!url.includes('?')) {
                     url += '?'
@@ -158,7 +140,7 @@ const fetch = {
                 url += qs.stringify(queryData, {
                     skipNulls: true
                 })
-            }
+            } */
 
             axios.get(url)
                 .then(res => {
@@ -174,7 +156,6 @@ const fetch = {
         // let data = _.cloneDeep(originData)
         url = _buildRestApi(url, data)
         url = _buildQueryUrl(url, data)
-
         return new Promise((resolve, reject) => {
             axios.post(url, data, context)
                 .then(res => {
