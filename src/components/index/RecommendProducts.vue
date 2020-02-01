@@ -5,16 +5,24 @@
        </h4>
        <div class="great-examples">
     
-      
-       <section class="example-item" v-for="(item,i) in examples" :key="i">
-             <header :style="{'backgroundImage': `url(${item.img}`}"></header>
-             <div class="product-content">
+       <el-row :gutter="20" class="main-center">
+          <el-col
+            class="example-item"
+            v-for="(item,i) in examples" 
+            :key="i"
+            :span="6"
+          >
+            <div class="item-content">
+              <header :style="{'backgroundImage': `url(${item.img}`}"></header>
+              <div class="product-content">
                 <a class="product-name">{{item.name}}</a>
                 <ul class="product-descs">
                 <li class="desc-item" v-for="(desc,d) in item.desc" :key="d">{{desc}}</li>
                 </ul>
-             </div>
-        </section> 
+              </div>
+            </div>
+          </el-col>
+       </el-row>
     </div>
    </div>
 </template>
@@ -78,15 +86,14 @@ export default {
     margin-top: 60px;
 }
 .great-examples {
-    display: flex;
-    width: 1200px;
+    max-width: 1200px;
     margin: 23px auto;
    .example-item {
-      flex: 1;
-      margin: 0 25px;
-      background-color: #FFF;
+       min-width: 200px;
+      .item-content {
+        background-color: #FFF;
+        margin-bottom: 10px;
       > header {
-          width: 250px;
           height: 250px;
           background-position: center;
           background-size: cover;
@@ -110,14 +117,16 @@ export default {
          text-overflow: ellipsis;
          overflow: hidden;
       }
-      .product-descs {
-          padding-left: 15px;
+        .product-descs {
+            padding-left: 15px;
+        }
+        .desc-item {
+            position: relative;
+            padding-left: 4px;
+            margin-bottom: 6px;
+        }
       }
-      .desc-item {
-         position: relative;
-         padding-left: 4px;
-         margin-bottom: 6px;
-      }
+      
    }
 }
 </style>

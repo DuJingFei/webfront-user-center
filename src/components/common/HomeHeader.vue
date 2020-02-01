@@ -1,13 +1,18 @@
 <template>
   <header class="home-header">
     <div class="main">
-      <img class="logo-image" src="@/assets/images/logo.jpg" alt="hya-alt" title="hya">
+      <a style="display:inline-block;" href="/">
+        <img class="logo-image" src="@/assets/images/logo.jpg" alt="hya-alt" title="hya" >
+      </a>
       <nav>
-        <li>解决方案</li>
-        <li>产品</li>
-        <li>公司简介</li>
-        <li>服务与认证</li>
-        <li>联系方式</li>
+        <a 
+          v-for="(item , i) in navItems"
+          :key="i"
+          :href="item.url"
+          :class="{'active': item.url === $route.path }"
+        >
+          {{ item.name }}
+        </a>
       </nav>
     </div>
   </header>
@@ -17,6 +22,28 @@ export default {
   name: "home-header",
   data() {
     return {
+      navItems: [
+        {
+          name: 'Default',
+          url: '/'
+        },
+        {
+          name: 'Solution',
+          url: '/solutions'
+        },
+        {
+          name: 'Product',
+          url: '/products'
+        },
+        {
+          name: 'Service & Authentication',
+          url: '/services'
+        },
+        {
+          name: 'Contact us',
+          url: '/contact'
+        }
+      ]
     };
   },
   methods: {
@@ -34,6 +61,7 @@ export default {
   text-align: center;
   box-shadow: 0 1px 3px rgba(32, 26, 26, 0.1);
   background: #fff;
+  margin-bottom: 2px;
   .main {
     display: flex;
     width: 1200px;
@@ -43,20 +71,18 @@ export default {
       width: 80px;
     }
   nav {
-    overflow: hidden;
     margin-left: 100px;
-    > li {
-      float: left;
+    min-width: 750px;
+    > a {
+      display: inline-block;
       list-style-type: none;
-      min-width: 100px;
-      text-align: center;
-      cursor: pointer;
+      min-width: 120px;
+      padding: 0 10px;
     }
-    .el-dropdown {
-      float: left;
-      span {
-        cursor: pointer;
-      }
+    .active {
+      font-weight: bold;
+      color: #2386ee;
+      border-bottom: 2px solid #2386ee;
     }
   }
 }

@@ -1,28 +1,29 @@
 <template>
   <div id="app">
-    <div>
-      <home-header/>
-      <router-view/>
-    </div>
+    <home-header />
+    <router-view class="main-com"/>
+    <footer-bar />
   </div>
 </template>
 
 <script>
-import HomeHeader from './components/common/HomeHeader.vue'
+import HomeHeader from './components/common/HomeHeader'
+import FooterBar from './components/common/FooterBar'
 export default {
   name: 'app',
   components: {
-    HomeHeader
+    HomeHeader,
+    FooterBar
   },
-  mounted() {
-  }
 }
 </script>
-
-<style>
+<style lang="less">
 #app {
   color: #2c3e50;
-  height: calc(100% – 10px);
+  height: calc(100vh);
   font-size: 14px;
+  .main-com {
+    min-height: calc(70%)
+  }
 }
 </style>

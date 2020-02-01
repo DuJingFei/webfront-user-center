@@ -1,6 +1,9 @@
 import Vue from 'vue'
 const API_URL = {
 
+    // 登录
+    LOGIN: '/api/login',
+
     // 上传资料
     UPLOAD: '/api/upload',
     
@@ -22,20 +25,12 @@ const API_URL = {
     // 获取banner集
     BANNER_LIST: '/api/bannerlist',
 
-    //获取地域信息
-    AREAS: "/api/areas",
+    // 分类(产品/解决方案/案例)
+    TYPE_LIST: '/api/typelist',
 
-    //获取UID为XXX用户主页的个人公开信息
-    MEMBERS: "/api/users/{id}",
+    TYPE_ADD: '/api/type/add',
 
-    //文档登录
-    THIRD_CODE: "/api/account/openParameter",
-
-    //获取登录用户全部信息
-    ME: "/api/account/me",
-
-    //获取用户关注话题
-    ME_TAGS: "/api/me/tags",
+    TYPE_UPDATE: '/api/type/{id}',
 }
 
 Vue.prototype.$api = API_URL

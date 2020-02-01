@@ -1,11 +1,11 @@
 <template>
     <div class="footer-bar">
        <nav>
-           <li>联系我们</li>
-           <li>法律声明</li>
-           <li>网站地图</li>
-           <li>留言板</li>
-           <li>产品列表</li>
+           <a
+             v-for="(item, i) in navItem"
+             :key="i"
+             :href="item.url"
+           >{{ item.name }}</a>
        </nav>
        <div style="margin-bottom:10px;">
            Copyright © 2016 苏州汇川技术有限公司 Design by Inovance 版权所有   苏ICP备12002088号    Powered by xinhongru.com
@@ -14,13 +14,34 @@
 </template>
 <script>
 export default {
-    name: 'footer-bar'
+    name: 'footer-bar',
+    data() {
+      return {
+        navItem: [
+          {  
+            name: 'Contact us',
+            url: 'contactus'
+          },
+          {
+            name: 'Legal statement',
+            url: 'legalstatement'
+          },
+          {
+            name: 'About us',
+            url: 'aboutus'
+          },
+          {
+            name: 'Management',
+            url: 'management'
+          }
+        ]
+      }
+    }
 }
 </script>
 <style lang="less">
 .footer-bar {
     background-color: #535353;
-    margin-top: 100px;
     color: #FFFFFF;
     text-align: center;
     min-width: 1000px;
@@ -29,9 +50,9 @@ export default {
        display: flex;
        width: 600px;
        margin: 10px auto;
-       li {
+       a {
           flex: 1;
-          list-style-type: none;
+          color: #FFFFFF;
        }
    }
 }

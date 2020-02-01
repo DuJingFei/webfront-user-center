@@ -3,6 +3,30 @@
        <h4 class="index-title">
          <span>PRODUCTS CENTER</span>
        </h4>
+
+       <el-row class="main-center">
+         <el-col 
+           v-for="(item,i) in product_centers" 
+           :key="i"
+           :span="8"
+         >
+           <div 
+             ref="productItem"
+             class="product-center-item"
+             :style="{'background-image': `url(${item.url})`, 'height':`${itemHeight}px` }"
+           >
+             <div class="modal-item">
+                12121212
+             </div>
+              <!-- <img 
+                :src="item.url" 
+                :alt="item.name" 
+              /> -->
+           </div>
+         </el-col>
+      </el-row>
+
+      <!--
        <div class="main-center">
           <dir class="product-center-item" v-for="(item,i) in product_centers" :key="i">
              <img :src="item.url" :alt="item.name" />
@@ -11,6 +35,7 @@
              </div>
           </dir>
        </div>
+       -->
    </div>
 </template>
 <script>
@@ -20,7 +45,7 @@ export default {
       return {
         product_centers: [
             {
-               url: require('../../assets/images/priory.jpg'),
+               url: require('../../assets/images/center1.jpg'),
                name: '一站式服务',
                desc: '极致的体验，尽情期待'
             },
@@ -28,9 +53,27 @@ export default {
                url: require('../../assets/images/center2.jpg'),
                name: '一站式服务',
                desc: '极致的体验，尽情期待'
+            },
+            {
+               url: require('../../assets/images/center3.jpg'),
+               name: '一站式服务',
+               desc: '极致的体验，尽情期待'
             }
-        ]
+        ],
+        itemHeight: '',
       }
+   },
+   mounted() {
+     let _this = this;
+     this.$nextTick(() => {
+       this.itemHeight = this.$refs.productItem[0].offsetWidth / 1.3
+     })
+
+     window.onresize = () => {
+        this.$nextTick(() => {
+          this.itemHeight = this.$refs.productItem[0].offsetWidth / 1.3
+        })
+     }
    },
    methods: {
       test() {
@@ -43,19 +86,32 @@ export default {
 .product-center {
    margin-top: 60px;
    .main-center {
-      width: 1200px;
-      display: flex;
-      margin: 0 auto;
+      min-width: 1200px;
+     
       .product-center-item {
-         position: relative;
-         flex: 1;
-         padding-left: 0;
-         height: 600px;
-         height: 400px;
-         overflow: hidden;
+         overflow: hidden;  
+         background-size: 115%;
+         transition: all 0.3s linear;
+         &:hover {
+           background-size: 130% !important;
+           transition: all 0.3s linear;
+         }
+         .modal-item {
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0;
+            &:hover {
+               opacity: .2;
+            }
+         }
+
+
+
          > img {
-             width: 600px;
-             height: 400px;
+             width: 100%;
+             height: 100%;
+            
              transition: transform 1s ease;
             &:hover {
                transform: scale(1.2);

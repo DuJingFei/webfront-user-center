@@ -2,7 +2,7 @@
     <el-carousel class="banner-carousel" :interval="5000" height="460px" arrow="always">
     <el-carousel-item v-for="(item,i) in banners" :key="i">
       <!-- <img :src="item.url" /> -->
-        <div class="banner-image" :style="{'backgroundImage': `url(${item.url})`}"></div>
+        <div class="banner-image" :style="{'backgroundImage': `url(${item.path})`}"></div>
     </el-carousel-item>
   </el-carousel>
 </template>
@@ -11,25 +11,20 @@ export default {
    name: 'carousel',
    data() {
      return {
-       banners: [
-         {
-           url: '/images/b1.jpg',
-           name:' star1'
-         },
-         {
-           url: '/images/b2.jpg',
-           name:' star2'
-         },
-         {
-           url: '/images/b3.jpg',
-           name:' star3'
-         },
-         {
-           url: '/images/b4.jpg',
-           name:' star4'
-         }
-       ]
+       banners: []
      }
+   },
+   created() {
+     this.getBannerList();
+   },
+   methods: {
+      getBannerList() {
+        this.$fetch.get(this.$api.BANNER_LIST).then(res => {
+          if (res.errorCode === 0) {
+            this.banners = res.data;
+          }
+        })
+      },
    }
 }
 </script>

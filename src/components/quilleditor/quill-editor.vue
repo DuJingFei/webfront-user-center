@@ -3,7 +3,7 @@
     <!-- 图片上传组件:这里整合的是elementUI的组件-->
     <input
       style="width:0;height:0;position:absolute"
-      class='avatar-uploader' 
+      :class='"avatar-uploader" + id' 
       type="file" 
       name="file" 
       accept=".jpg, .jpeg, .png" 
@@ -60,6 +60,10 @@ export default {
     value: {
       type: String
     },
+    id: {
+      type: String,
+      default: 'myQuillEditor'
+    },
     /* 图片大小 */
     maxSize: {
       type: Number,
@@ -70,6 +74,7 @@ export default {
     quillEditor
   },
   data () {
+    let _this = this;
     return {
       content: this.value,
       quillUpdateImg: false, // 根据图片上传状态来确定是否显示loading动画，刚开始是false,不显示
@@ -84,7 +89,7 @@ export default {
               image: function (value) {
                 if (value) {
                   // 触发input框选择图片文件
-                  document.querySelector('.avatar-uploader').click()
+                  document.querySelector(".avatar-uploader" + _this.id).click()
                 } else {
                   this.quill.format('image', false)
                 }
@@ -124,6 +129,7 @@ export default {
         headers: { "content-type": "multipart/form-data" }
       }).then(res => {
         if (res.errorCode === 0) {
+            debugger
             _this.content = `${_this.content}<img src='${res.data.path}' />`
           // this.detail.path = res.data.path;
         }

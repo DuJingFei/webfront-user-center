@@ -18,10 +18,10 @@
       <el-form-item label="类型" prop="type">
         <el-select v-model="product.type" placeholder="请选择">
           <el-option
-            v-for="item in typelist"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
+            v-for="(item,i) in typeList"
+            :key="item.Id + i"
+            :label="item.name"
+            :value="item.Id">
           </el-option>
         </el-select>
       </el-form-item>
@@ -39,9 +39,25 @@
       </el-form-item>
       <el-form-item label="内容" prop="content">
         <quill-editor 
-          :key="reload"
-          ref="quillEditor" 
+          :key="reload1"
+          id='contentEditor'
+          ref="content" 
           v-model="product.content"/>
+      </el-form-item>
+      <el-form-item label="specification" prop="specification">
+        <quill-editor 
+          class="specification-editor"
+          id='specificationEditor'
+          :key="reload2"
+          ref="specification" 
+          v-model="product.specification"/>
+      </el-form-item>
+      <el-form-item label="benefit" prop="benefit">
+        <quill-editor 
+          :key="reload3"
+          id='benefitEditor'
+          ref="benefit" 
+          v-model="product.benefit"/>
       </el-form-item>
        <el-button 
          type="primary" 
@@ -63,36 +79,30 @@ export default {
    name: 'product-editor',
    data () {
     return {
-      reload: 1, // 通过key值的变化促使子组件重新渲染，这里 vue-quill-editor 只能通过重新渲染的方式解决异步获取数据的显示问题
+      reload1: 1, // 通过key值的变化促使子组件重新渲染，这里 vue-quill-editor 只能通过重新渲染的方式解决异步获取数据的显示问题,
+      reload2: 1,
+      reload3: 1,
       product: {
         name: '',
         model: '',
         type: '',
         image: '',
-        content: ''
+        content: '',
+        specification: '',
+        benefit: ''
       },
       rules: {
         name: [
           { required: true, message: '请录入产品名称', trigger: 'blur' }
         ],
-        content: [
-          { required: true, message: '请录入产品内容', trigger: 'change' }
+        specification: [
+          { required: true, message: '请录入specification', trigger: 'change' }
+        ],
+        benefit: [
+          { required: true, message: '请录入benefit', trigger: 'change' }
         ]
       },
-      typelist: [
-        {
-          value: 1,
-          label: '数字变频器'
-        },
-        {
-          value: 2,
-          label: '音频变频器'
-        },
-        {
-          value: 3,
-          label: '灌溉器'
-        },
-      ]
+      typeList: [],
     }
   },
   computed: {
@@ -100,19 +110,31 @@ export default {
       return this.$route.params && this.$route.params.id;
     }
   },
+
   created() {
+    this.getTypeList();
     if (this.productId) {
       this.getDetail(this.productId)
     }
   },
   methods: {
+    getTypeList() {
+      let _this = this;
+      this.$fetch.get(this.$api.TYPE_LIST + `?classfy=1`).then(res => {
+        if (!res.errorCode) {
+          _this.typeList = res.data;
+        }
+      })
+    },
     getDetail(id) {
       let _this = this;
       this.$fetch.get(this.$api.PRODUCT_DETAIL, { id: id }).then(res => {
         if (res.errorCode === 0) {
       
           _this.product = res.data;
-          this.reload = 2;
+          this.reload1 = 2;
+          this.reload2 =2;
+          this.reload3 =2;
         //  _this.$refs.quillEditor.$forceUpdate();
         }
       })
@@ -148,7 +170,7 @@ export default {
             },1000)
           }
         })
-      })
+      }) 
     }
   }
 }
