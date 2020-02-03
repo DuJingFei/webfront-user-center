@@ -8,7 +8,7 @@ const API_URL = {
     UPLOAD: '/api/upload',
     
     //获取产品列表
-    PRODUCT_LIST: '/api/list',
+    PRODUCT_LIST: '/api/product/list',
 
     // 产品详情
     PRODUCT_DETAIL: '/api/product/{id}',
@@ -31,6 +31,8 @@ const API_URL = {
     TYPE_ADD: '/api/type/add',
 
     TYPE_UPDATE: '/api/type/{id}',
+
+    TYPE_LIST_TREE: '/api/typelist/tree',
 }
 
 Vue.prototype.$api = API_URL
