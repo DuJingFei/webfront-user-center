@@ -30,6 +30,12 @@ const routes =  [
     component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
     meta: { title: 'HYA-about', keyword: 'HYA-about', description: 'HYA-about' },
   },
+  {
+    path: '/contactus',
+    name: 'about',
+    component: () => import(/* webpackChunkName: "about" */ './views/Contact.vue'),
+    meta: { title: 'HYA-contactus', keyword: 'HYA-contactus', description: 'HYA-contactus' },
+  },
 
   {
     path: '/login',

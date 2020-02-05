@@ -2,6 +2,7 @@
   <div class="product-list">
     <section class="tree-area">
       <el-tree 
+        class="type-tree"
         :data="typeList" 
         node-key="Id"
         :default-expanded-keys="[curTypeId]"
@@ -127,13 +128,11 @@ export default {
     getRelativeProducts(typeId) {
       this.$fetch.get(`${this.$api.PRODUCT_LIST}?typeId=${typeId}`).then(res => {
         if (res.errorCode == 0) {
-          debugger
           this.productList = res.data;
         }
       })
     },
     handleNodeClick(data) {
-      debugger
       this.curTypeId = data.Id;
       this.getTypeItem(this.curTypeId);
     },
@@ -148,6 +147,17 @@ export default {
     width: 290px;
     margin-right: 10px;
     float: left;
+    color: #000;
+    .type-tree {
+      .el-tree-node__content {
+        height: 40px;
+      }
+      .el-tree-node:focus {
+        .el-tree-node__content { 
+         // font-weight: bold;
+        }
+      }
+    }
   }
   .product-list-area {
     background-color: #ffffff;

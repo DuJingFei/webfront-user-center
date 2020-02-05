@@ -4,7 +4,7 @@
         <product-center/>
         <recommend-products/>
         <about-news/>
-        <!-- <concept-map/> -->
+        <concept-map/>
         <main-product/>
     </div>
 </template>
