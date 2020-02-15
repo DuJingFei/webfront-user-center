@@ -5,7 +5,7 @@
         <recommend-products/>
         <about-news/>
         <concept-map/>
-        <main-product/>
+        <!-- <main-product/> -->
     </div>
 </template>
 <script>

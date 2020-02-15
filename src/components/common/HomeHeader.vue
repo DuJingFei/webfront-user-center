@@ -9,6 +9,7 @@
           v-for="(item , i) in navItems"
           :key="i"
           :href="item.url"
+          class='nav-item'
           :class="{'active': item.url === $route.path }"
         >
           {{ item.name }}
@@ -24,7 +25,7 @@ export default {
     return {
       navItems: [
         {
-          name: 'Default',
+          name: 'Home',
           url: '/'
         },
         {
@@ -33,15 +34,15 @@ export default {
         },
         {
           name: 'Product',
-          url: '/products'
+          url: '/productlist'
         },
         {
           name: 'Service & Authentication',
           url: '/services'
         },
         {
-          name: 'Contact us',
-          url: '/contact'
+          name: 'Contact Us',
+          url: '/contactus'
         }
       ]
     };
@@ -78,6 +79,10 @@ export default {
       list-style-type: none;
       min-width: 120px;
       padding: 0 10px;
+      &:hover {
+        font-weight: bold;
+        color: #2386ee;
+      }
     }
     .active {
       font-weight: bold;

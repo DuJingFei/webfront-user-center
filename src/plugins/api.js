@@ -33,6 +33,11 @@ const API_URL = {
     TYPE_UPDATE: '/api/type/{id}',
 
     TYPE_LIST_TREE: '/api/typelist/tree',
+
+    // 联系
+    CONTACT: '/api/contact/add',
+
+    CONTACT_LIST: '/api/contact/list',
 }
 
 Vue.prototype.$api = API_URL

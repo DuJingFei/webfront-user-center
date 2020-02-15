@@ -45,17 +45,17 @@ export default {
       return {
         product_centers: [
             {
-               url: require('../../assets/images/center1.jpg'),
+               url: require('../../assets/images/center1.png'),
                name: '一站式服务',
                desc: '极致的体验，尽情期待'
             },
             {
-               url: require('../../assets/images/center2.jpg'),
+               url: require('../../assets/images/center2.png'),
                name: '一站式服务',
                desc: '极致的体验，尽情期待'
             },
             {
-               url: require('../../assets/images/center3.jpg'),
+               url: require('../../assets/images/center3.png'),
                name: '一站式服务',
                desc: '极致的体验，尽情期待'
             }
@@ -66,12 +66,12 @@ export default {
    mounted() {
      let _this = this;
      this.$nextTick(() => {
-       this.itemHeight = this.$refs.productItem[0].offsetWidth / 1.3
+       this.itemHeight = this.$refs.productItem[0].offsetWidth / 1.335
      })
 
      window.onresize = () => {
         this.$nextTick(() => {
-          this.itemHeight = this.$refs.productItem[0].offsetWidth / 1.3
+          this.itemHeight = this.$refs.productItem[0].offsetWidth / 1.335
         })
      }
    },
@@ -90,10 +90,11 @@ export default {
      
       .product-center-item {
          overflow: hidden;  
-         background-size: 115%;
+         background-size: 100%;
+         background-position: 50%;
          transition: all 0.3s linear;
          &:hover {
-           background-size: 130% !important;
+           background-size: 105% !important;
            transition: all 0.3s linear;
          }
          .modal-item {
@@ -102,7 +103,7 @@ export default {
             background-color: black;
             opacity: 0;
             &:hover {
-               opacity: .2;
+               opacity: .3;
             }
          }
 

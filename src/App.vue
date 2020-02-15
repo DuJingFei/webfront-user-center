@@ -2,7 +2,7 @@
   <div id="app">
     <home-header />
     <router-view class="main-com"/>
-    <footer-bar />
+    <!-- <footer-bar /> -->
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
   height: calc(100vh);
   font-size: 14px;
   .main-com {
-    min-height: calc(70%)
+    min-height: calc(90%)
   }
 }
 </style>

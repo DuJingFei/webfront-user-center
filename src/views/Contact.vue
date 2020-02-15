@@ -116,8 +116,19 @@ export default {
     }
   },
   methods: {
-    submitInfo() {
-
+    submitInfo(detail) {
+      debugger
+      this.$refs[detail].validate((valid) => {
+        if (!valid) {
+          return this.$message.error('请完善必填属性');
+        }
+        this.$fetch.post(this.$api.CONTACT, this.detail).then(res => {
+          debugger
+          if (res.errorCode == 0) {
+  
+          }
+        })
+      })
     }
   }
 }
