@@ -33,6 +33,7 @@ export default {
    .banner-image {
       height: 100%;
       background-size: cover;
+      background-position: center;
    }
 }
  .el-carousel__item h3 {

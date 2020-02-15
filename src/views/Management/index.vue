@@ -2,12 +2,14 @@
   <div class="management-index">
       <h1 class="title">Welcome to HYT Management</h1>
       <article>
-        <a 
+        <el-button
           v-for='(item,i) in barList' 
-          :key='i' target="_blank" 
-          :href="item.href">
+          :key='i'
+          :type='item.type'
+          @click='goUrl(item.href)'
+        >
           {{ item.name }}
-        </a>
+        </el-button>
       </article>
   </div>
 </template>
@@ -18,22 +20,34 @@ export default {
       return {
          barList: [
            {
-             href: '/management/banners',
-             name: 'Banner管理'
+             href: '/management/banner/list',
+             name: 'Banner管理',
+             type: 'primary'
            },
            {
-             href: '/management/product/index',
-             name: '产品管理'
+             href: '/management/product/list',
+             name: '产品管理',
+             type: 'success'
            },
            {
              href: '/management/type',
-             name: '分类管理'
+             name: '分类管理',
+             type: 'info'
+           },
+           {
+             href: '/management/contact/list',
+             name: '客户管理',
+             type: 'warning'
            }
          ]
       }
    },
    methods: {
-
+     goUrl(url) {
+       if (url) {
+         location.href = url;
+       }
+     }
    }
 }
 </script>
@@ -43,7 +57,11 @@ export default {
   padding: 20px;
   .title {
     text-align: center;
-    color: rgb(25,134,191);
+    color: #409EFF;
+    margin: 50px 0;
+  }
+  article {
+    text-align: center;
   }
 }
 </style>

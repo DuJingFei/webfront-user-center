@@ -38,11 +38,20 @@
         <input v-else type="file" name="file" accept=".jpg, .jpeg, .png" @change="uploadAvatar">
       </el-form-item>
       <el-form-item label="内容" prop="content">
+
+        <el-input
+          type="textarea"
+          :rows="2"
+          placeholder="请输入内容"
+          v-model="product.content">
+        </el-input>
+        <!--
         <quill-editor 
           :key="reload1"
           id='contentEditor'
           ref="content" 
           v-model="product.content"/>
+        -->
       </el-form-item>
       <el-form-item label="specification" prop="specification">
         <quill-editor 

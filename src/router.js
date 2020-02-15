@@ -68,7 +68,7 @@ const routes =  [
     needLogin: true
   },
   {
-    path: '/management/banners',
+    path: '/management/banner/list',
     name: 'banners-index',
     component: () => import(/* webpackChunkName: "about" */ './views/Management/banner/index.vue'),
     needLogin: true
@@ -87,7 +87,7 @@ const routes =  [
   },
 
   {
-    path: '/management/product/index',
+    path: '/management/product/list',
     name: 'banner-index',
     component: () => import(/* webpackChunkName: "about" */ './views/Management/product/index.vue'),
     needLogin: true

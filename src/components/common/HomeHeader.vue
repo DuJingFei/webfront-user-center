@@ -78,9 +78,9 @@ export default {
       display: inline-block;
       list-style-type: none;
       min-width: 120px;
+      font-weight: bold;
       padding: 0 10px;
       &:hover {
-        font-weight: bold;
         color: #2386ee;
       }
     }

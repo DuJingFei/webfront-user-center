@@ -48,7 +48,13 @@ export default {
         password: escape(this.loginData.password)
       } */
       this.$fetch.post(this.$api.LOGIN, this.loginData).then(res => {
-        debugger
+        if (res.errorCode === 0) {
+          // /management
+          this.$router.push('/management')
+        }
+        else {
+          this.$Message.error('账号不存在')
+        }   
       })
     }
   }

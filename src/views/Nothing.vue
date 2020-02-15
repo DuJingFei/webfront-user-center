@@ -18,7 +18,6 @@ export default {
 <style lang="less">
 .nothing {
   p {
-    font-weight: bold;
     text-align: center;
     font-size: 30px;
     margin-bottom: 10px;
