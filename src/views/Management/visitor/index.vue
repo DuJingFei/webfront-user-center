@@ -9,7 +9,7 @@
         label="姓名"
         width="180">
           <template slot-scope="scope">
-              <label>{{ scope.row.name }}</label>
+            <label>{{ scope.row.name }}</label>
           </template>
         </el-table-column>
 
@@ -80,6 +80,9 @@ export default {
           this.contactList = res.data;
         }
       })
+    },
+    goDetail(id) {
+      this.$router.push(`/management/contact/${id}`)
     }
   }
 }

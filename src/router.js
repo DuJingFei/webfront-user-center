@@ -1,14 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from './views/index.vue'
 
 Vue.use(Router)
 const routes =  [
   {
     path: '/',
-    name: 'index',
-    component: Index,
-    needLogin: true
+    name: 'home',
+    component: () => import(/* webpackChunkName: "about" */ './views/Home.vue')
+  },
+  {
+    path: '/nothing',
+    name: 'nothing',
+    component: () => import(/* webpackChunkName: "about" */ './views/Nothing.vue')
   },
   {
     path: '/productlist',
@@ -40,7 +43,15 @@ const routes =  [
   {
     path: '/management/contact/list',
     name: 'contactList',
-    component: () => import(/* webpackChunkName: "about" */ './views/Management/contact.vue'),
+    component: () => import(/* webpackChunkName: "about" */ './views/Management/visitor/index.vue'),
+    needLogin: true
+  },
+  
+  {
+    path: '/management/contact/:id',
+    name: 'contact-index',
+    component: () => import(/* webpackChunkName: "about" */ './views/Management/visitor/index.vue'),
+    needLogin: true
   },
 
   {

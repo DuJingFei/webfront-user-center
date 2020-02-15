@@ -1,18 +1,35 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div class="index-default">
+        <carousel/>
+        <product-center/>
+        <recommend-products/>
+        <about-news/>
+        <concept-map/>
+        <!-- <main-product/> -->
+    </div>
 </template>
-
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import Carousel from '@/components/index/Carousel'
+import RecommendProducts from '@/components/index/RecommendProducts'
+import ProductCenter from '@/components/index/ProductCenter'
+import AboutNews from '@/components/index/News'
+import MainProduct from '@/components/index/MainProduct'
+import ConceptMap from '@/components/index/ConceptMap'
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  },
+   name:'index-default',
+   components: {
+      Carousel,
+      AboutNews,
+      RecommendProducts,
+      ProductCenter,
+      MainProduct,
+      ConceptMap
+   }
 }
 </script>
+<style lang="less">
+.index-default {
+   background: #E2E7EF;
+   margin: 0 auto;
+}
+</style>

@@ -37,6 +37,8 @@ const API_URL = {
     // 联系
     CONTACT: '/api/contact/add',
 
+    CONTACT_DETAIL: '/api/contact/{id}',
+
     CONTACT_LIST: '/api/contact/list',
 }
 

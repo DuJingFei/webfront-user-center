@@ -29,16 +29,16 @@ export default {
           url: '/'
         },
         {
-          name: 'Solution',
-          url: '/solutions'
-        },
-        {
           name: 'Product',
           url: '/productlist'
         },
         {
+          name: 'Solution',
+          url: '/nothing'
+        },
+        {
           name: 'Service & Authentication',
-          url: '/services'
+          url: '/nothing'
         },
         {
           name: 'Contact Us',

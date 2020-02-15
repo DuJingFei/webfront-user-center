@@ -2,7 +2,7 @@
     <div class="concept-map">
        <el-popover
             placement="top-start"
-            title="water storage"
+            :title="waterStorage.name"
             width="350"
             trigger="hover"
             >
@@ -16,7 +16,7 @@
 
        <el-popover
             placement="top-start"
-            title="标题"
+            :title="hyaSolar.name"
             width="350"
             trigger="hover"
             >
@@ -29,25 +29,29 @@
 
        <el-popover
             placement="top-start"
-            title="标题"
-            width="350"
+            :title="submersible.name"
+            width="405"
             trigger="hover"
             >
-            <div class="conceptmap-popover-content">
-              <img style='height:200px' :src='submersible.image' :alt='submersible.name' />
-              {{submersible.desc}}
+            <div class="conceptmap-popover-content hya-solar-popover">
+              <img :src='submersible.image' :alt='submersible.name' />
+              <div class='content'>
+                {{submersible.desc}}
+              </div>
             </div>
             <a class="icon-hand hya-solar hya-solar-inverter-2" slot="reference"></a>
        </el-popover>
        <el-popover
             placement="top-start"
-            title="标题"
-            width="350"
+            :title="intensification.name"
+            width="405"
             trigger="hover"
             >
-            <div class="conceptmap-popover-content">
-              <img style='height:200px' :src='intensification.image' :alt='intensification.name' />
-              {{intensification.desc}}
+            <div class="conceptmap-popover-content hya-solar-popover">
+              <img :src='intensification.image' :alt='intensification.name' />
+              <div class='content'>
+                {{intensification.desc}}
+              </div>
             </div>
             <a class="icon-hand hya-solar field-irrigation" slot="reference"></a>
        </el-popover>
@@ -60,23 +64,23 @@ export default {
     data() {
       return {
         hyaSolar: {
-          name: 'hyaSolar',
+          name: 'Solar Pump Inverter',
           image: require('../../assets/images/conceptMap/solarpanels.png'),
-          desc: 'The GF solar panels are designed especially for the LPF pump motor unit. The power level from 160W to 360W ensures optimum efficiency of the complete LPF pump system – with up to 20% flow increase per day in small systems. The solar panels incorporate bypass diodes, which minimize power loss in case the panels are covered by patches of shadow, dirt, leaves or bird lettings. Wiring of the GF solar panels is easily done using the MC cable connectors.'
+          desc: 'With the intensification of the current world energy crisis, HYA actively promotes the concept of new energy utilization and sustainable development- SP series solar pump products have emerged at the historic moment, and have built a good reputation since they were launched on the market. The inverter can convert the DC of the solar panel into AC and drive various water pumps. On sunny days, SP series solar pump system can continuously pump water. The water source is natural or special, such as rivers, lakes, wells or water channels.'
         },
         waterStorage: {
-          name: 'water storage',
+          name: 'Outlet Tank',
           image: require('../../assets/images/conceptMap/waterstorage.png'),
           desc: 'Introducing water storage to a solar water pumping system allows for increased seasonal demands to be met, or simply for overnight water availability without a generator or grid power.'
         },
-        submersible: {
-          name: 'Submersible',
+        submersible: { 
+          name: 'Solar Pump Inverter',
           image: require('../../assets/images/conceptMap/Solarsubmersible.png'),
           desc: 'LPF Solar Submersible Pumps are fitted with a permanent magnet, brushless motor, Which enables the efficient use of energy from a wide range of supply options. The structure of motor with double shields poses no pollution risk to drinking water. The 3 external controllers provide users with a variety of options, while offering the MPPT function-Maximum Power Point Tracking, maximizing the utilization of power generated from the photovoltaic generator.'
         },
         intensification: {
-          name: 'Submersible',
-          image: require('../../assets/images/conceptMap/solarpanels.png'),
+          name: 'Solar Pump',
+          image: require('../../assets/images/conceptMap/HYAactively.png'),
           desc: 'With the intensification of the current world energy crisis, HYA actively promotes the concept of new energy utilization and sustainable development- SP series solar pump products have emerged at the historic moment, and have built a good reputation since they were launched on the market. The inverter can convert the DC of the solar panel into AC and drive various water pumps. On sunny days, SP series solar pump system can continuously pump water. The water source is natural or special, such as rivers, lakes, wells or water channels.'
         }
       }
@@ -122,6 +126,19 @@ export default {
   img {
      width: 100%;
      margin-bottom: 10px;
+  }
+  word-break: break-word;
+}
+.hya-solar-popover {
+  img {
+    float: left;
+    width:200px;
+  }
+  .content {
+    float: left;
+    margin-left: 10px;
+    width: 191px;
+    word-break: break-word;
   }
 }
 </style>

@@ -22,6 +22,7 @@ export default {
   color: #2c3e50;
   height: calc(100vh);
   font-size: 14px;
+  word-break: break-word;
   .main-com {
     min-height: calc(90%)
   }
