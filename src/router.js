@@ -50,7 +50,7 @@ const routes =  [
   {
     path: '/management/contact/:id',
     name: 'contact-index',
-    component: () => import(/* webpackChunkName: "about" */ './views/Management/visitor/index.vue'),
+    component: () => import(/* webpackChunkName: "about" */ './views/Management/visitor/add.vue'),
     needLogin: true
   },
 

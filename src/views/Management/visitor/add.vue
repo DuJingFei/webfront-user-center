@@ -1,6 +1,5 @@
 <template>
   <div class="management-contact-detail">
-    <section>
       <el-form
          class="form-content" 
          ref="detail" 
@@ -42,18 +41,18 @@
             </el-form-item>
          </div>
          <div class='form-line'>
-         <el-form-item label="Website URL">
-            <el-input 
-            v-model="detail.url"
-            size="mini"
-            ></el-input>
-         </el-form-item>
-         <el-form-item label="Product Model" prop="company">
-            <el-input 
-            v-model="detail.productmodel"
-            size="mini"
-            ></el-input>
-         </el-form-item>
+          <el-form-item label="Website URL">
+              <el-input 
+              v-model="detail.url"
+              size="mini"
+              ></el-input>
+          </el-form-item>
+          <el-form-item label="Product Model" prop="company">
+              <el-input 
+              v-model="detail.productmodel"
+              size="mini"
+              ></el-input>
+          </el-form-item>
          </div>
          <el-form-item label="Detail">
             <el-input 
@@ -62,9 +61,6 @@
               v-model="detail.detail"
               size="mini"
             ></el-input>
-         </el-form-item>
-         <el-form-item>
-            
          </el-form-item>
       </el-form>
   </div>
@@ -82,12 +78,28 @@ export default {
         email: '',
         productmodel: '',
         createtime: '',
-        dateTime: ''
       }
     }
   },
+  computed: {
+    contactId() {
+      return this.$route.params && this.$route.params.id;
+    }
+  },
   created() {
-    
+    if (this.contactId) {
+      this.getDetail(this.contactId)
+    }
+  },
+  methods: {
+    getDetail(id) {
+      if (!id) return
+      this.$fetch.get(this.$api.CONTACT_DETAIL, { id: id }).then(res => {
+        if (res.errorCode == 0) {
+          this.detail = res.data
+        }
+      })
+    }
   }
 }
 </script>

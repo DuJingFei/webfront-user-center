@@ -50,12 +50,12 @@
             <el-button 
               type="primary" 
               icon="el-icon-edit"
-              @click="goDetail(scope.row.id)"
+              @click="goDetail(scope.row.Id)"
             ></el-button>
             <el-button 
               type="primary" 
               icon="el-icon-delete" 
-              @click="deleteItem(scope.row.id)"
+              @click="deleteItem(scope.row.Id)"
             ></el-button>
           </template>
         </el-table-column>
