@@ -2,7 +2,7 @@
   <div class="contact-us">
     <section>
       <h1>Contact us</h1>
-      <h3>to get the promise infomation, we suggest you to send your need for us by Email</h3>
+      <h3>to get the first time infomation, we strongly suggest you to send your need to us by Email</h3>
       <el-form
          class="form-content" 
          ref="detail" 

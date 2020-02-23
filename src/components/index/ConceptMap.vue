@@ -47,7 +47,7 @@
             width="405"
             trigger="hover"
             >
-            <div class="conceptmap-popover-content hya-solar-popover">
+            <div class="conceptmap-popover-content">
               <img :src='intensification.image' :alt='intensification.name' />
               <div class='content'>
                 {{intensification.desc}}
