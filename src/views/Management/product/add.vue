@@ -74,7 +74,7 @@
        >
          {{ productId ? '更新' : '立即创建' }} 
        </el-button>
-       <el-button>取消</el-button>
+       <el-button @click="$router.push('/management/product/list')">取消</el-button>
 
     </el-form>
   </div>
@@ -171,11 +171,12 @@ export default {
         if (!valid) {
           return this.$message.error('请完善必填属性');
         }
-        this.$fetch.post(this.$api.PRODUCT_ADD, this.product).then(res => {
+        let API = this.productId ?  this.$api.PRODUCT_DETAIL : this.$api.PRODUCT_ADD;
+        this.$fetch.post(API, this.product).then(res => {
           if (res.errorCode === 0) {
-            _this.$message.success('发布成功');
+            _this.$message.success(this.productId ? '更新成功': '发布成功');
             setTimeout(() => {
-              _this.$router.push('/management/product/index')
+              _this.$router.push('/management/product/list')
             },1000)
           }
         })

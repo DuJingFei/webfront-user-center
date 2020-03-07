@@ -11,8 +11,11 @@
       />
     </section>
     <section class="product-list-area">
-      <h2 class="type-name">{{ curTypeDetail.name }}</h2>
-      <p>{{ curTypeDetail.content }}</p>
+      <h1 class="type-name">{{ curTypeDetail.name }}</h1>
+      <div 
+        v-if="curTypeDetail.content && curTypeDetail.content.length > 0"
+        v-html="curTypeDetail.content"
+      ></div>
       <section class="product-list">
         <template v-if='productList && productList.length > 0'>
           <div 
@@ -164,6 +167,9 @@ export default {
     width: 870px;
     padding: 15px;
     float: left;
+    > h1 {
+      font-size: 28px;
+    }
     .type-name {
       margin-bottom: 10px;
     }
@@ -173,7 +179,7 @@ export default {
       .product-item {
         width: 230px;
         float: left;
-        margin-right: 15px;
+        margin: 15px;
         position: relative;
         box-shadow: 1px 3px 13px rgba(26, 26, 26, 0.1);
         header {
@@ -183,12 +189,12 @@ export default {
           background-size: contain;
         }
         article {
-          > h2 {
-            padding-top: 10px;
-            text-align: center;
+          padding: 10px;
+          > h3 {
+            
           }
           P {
-            padding: 10px;
+            
           }
         }
       }

@@ -83,7 +83,28 @@ export default {
       this.$router.push(`/management/product/${id}`)
     },
     deleteItem(id) {
-      
+      let _this = this;
+      this.$confirm('此操作将永久删除该产品信息, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        _this.$fetch.delete(_this.$api.PRODUCT_DETAIL, {
+            id: id
+        }).then(res => {
+          _this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+          this.getProductList();
+        })
+
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消删除'
+        });          
+      });
     },
     goAdd() {
       this.$router.push('/management/product/add')

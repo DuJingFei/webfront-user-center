@@ -92,10 +92,10 @@ export default {
          overflow: hidden;  
          background-size: 100%;
          background-position: 50%;
-         transition: all 0.3s linear;
+         transition: all 0.5s linear;
          &:hover {
            background-size: 105% !important;
-           transition: all 0.3s linear;
+           transition: all 0.5s linear;
          }
          .modal-item {
             width: 100%;

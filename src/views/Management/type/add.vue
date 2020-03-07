@@ -40,7 +40,7 @@
         >
          {{ productId ? '更新' : '立即创建' }} 
         </el-button>
-        <el-button>取消</el-button>
+        <el-button @click="$router.push('/management/type')">取消</el-button>
       </div>
     </el-form>
   </div>
