@@ -92,8 +92,13 @@ export default {
       this.$router.push(`/management/type/${id}`)
     },
     deleteItem(id) {
+      let _this = this;
       this.$fetch.delete(this.$api.TYPE_UPDATE , { id : id}).then(res => {
-        debugger
+        _this.$message({
+          type: 'success',
+          message: '删除成功!'
+        });
+        this.getTypeList();
       })
     }
   }

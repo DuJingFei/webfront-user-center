@@ -5,6 +5,7 @@
             :title="waterStorage.name"
             width="350"
             trigger="hover"
+            popper-class="concept-map-popover"
             >
             <div class="conceptmap-popover-content">
               <img :src='waterStorage.image' :alt='waterStorage.name' />
@@ -19,6 +20,7 @@
             :title="hyaSolar.name"
             width="350"
             trigger="hover"
+            popper-class="concept-map-popover"
             >
             <div class="conceptmap-popover-content">
               <img :src='hyaSolar.image' :alt='hyaSolar.name' />
@@ -30,8 +32,9 @@
        <el-popover
             placement="top-start"
             :title="submersible.name"
-            width="405"
+            width="362"
             trigger="hover"
+            popper-class="concept-map-popover"
             >
             <div class="conceptmap-popover-content hya-solar-popover">
               <img :src='submersible.image' :alt='submersible.name' />
@@ -46,6 +49,7 @@
             :title="intensification.name"
             width="405"
             trigger="hover"
+            popper-class="concept-map-popover"
             >
             <div class="conceptmap-popover-content">
               <img :src='intensification.image' :alt='intensification.name' />
@@ -74,12 +78,12 @@ export default {
           desc: 'Introducing water storage to a solar water pumping system allows for increased seasonal demands to be met, or simply for overnight water availability without a generator or grid power.'
         },
         submersible: { 
-          name: 'Solar Pump Inverter',
+          name: 'Solar Pump',
           image: require('../../assets/images/conceptMap/Solarsubmersible.png'),
           desc: 'LPF Solar Submersible Pumps are fitted with a permanent magnet, brushless motor, Which enables the efficient use of energy from a wide range of supply options. The structure of motor with double shields poses no pollution risk to drinking water. The 3 external controllers provide users with a variety of options, while offering the MPPT function-Maximum Power Point Tracking, maximizing the utilization of power generated from the photovoltaic generator.'
         },
         intensification: {
-          name: 'Solar Pump',
+          name: 'Solar Panel',
           image: require('../../assets/images/conceptMap/HYAactively.png'),
           desc: 'With the intensification of the current world energy crisis, HYA actively promotes the concept of new energy utilization and sustainable development- SP series solar pump products have emerged at the historic moment, and have built a good reputation since they were launched on the market. The inverter can convert the DC of the solar panel into AC and drive various water pumps. On sunny days, SP series solar pump system can continuously pump water. The water source is natural or special, such as rivers, lakes, wells or water channels.'
         }
@@ -132,7 +136,7 @@ export default {
 .hya-solar-popover {
   img {
     float: left;
-    width:200px;
+    width: 155px;
   }
   .content {
     float: left;

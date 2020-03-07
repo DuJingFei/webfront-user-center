@@ -16,7 +16,7 @@
              :style="{'background-image': `url(${item.url})`, 'height':`${itemHeight}px` }"
            >
              <div class="modal-item">
-                12121212
+                
              </div>
               <!-- <img 
                 :src="item.url" 
@@ -45,7 +45,7 @@ export default {
       return {
         product_centers: [
             {
-               url: require('../../assets/images/center1.png'),
+               url: require('../../assets/images/center3.png'),
                name: '一站式服务',
                desc: '极致的体验，尽情期待'
             },
@@ -55,7 +55,7 @@ export default {
                desc: '极致的体验，尽情期待'
             },
             {
-               url: require('../../assets/images/center3.png'),
+               url: require('../../assets/images/center1.png'),
                name: '一站式服务',
                desc: '极致的体验，尽情期待'
             }

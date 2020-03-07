@@ -37,7 +37,7 @@ export default {
           url: '/nothing'
         },
         {
-          name: 'Service & Authentication',
+          name: 'Service & Support',
           url: '/nothing'
         },
         {
@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     view(itemId) {
-      debugger;
+      
     }
   }
 };
@@ -78,6 +78,7 @@ export default {
       display: inline-block;
       list-style-type: none;
       min-width: 120px;
+      font-size: 16px;
       font-weight: bold;
       padding: 0 10px;
       &:hover {
