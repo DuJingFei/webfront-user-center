@@ -35,6 +35,11 @@ export default {
              type: 'info'
            },
            {
+             href: '/management/service/list',
+             name: '服务支持管理',
+             type: 'danger'
+           },
+           {
              href: '/management/contact/list',
              name: '客户管理',
              type: 'warning'

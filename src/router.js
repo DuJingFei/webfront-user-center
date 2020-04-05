@@ -53,7 +53,11 @@ const routes =  [
     component: () => import(/* webpackChunkName: "about" */ './views/Management/visitor/add.vue'),
     needLogin: true
   },
-
+  {
+    path: '/service',
+    name: 'service',
+    component: () => import(/* webpackChunkName: "about" */ './views/Service.vue')
+  },
   {
     path: '/login',
     name: 'login-index',
@@ -87,8 +91,27 @@ const routes =  [
   },
 
   {
+    path: '/management/service/list',
+    name: 'service-index',
+    component: () => import(/* webpackChunkName: "about" */ './views/Management/service/index.vue'),
+    needLogin: true
+  },
+  {
+    path: '/management/service/add',
+    name: 'service-add',
+    component: () => import(/* webpackChunkName: "about" */ './views/Management/service/add.vue'),
+    needLogin: true
+  },
+  {
+    path: '/management/service/:id',
+    name: 'service-add',
+    component: () => import(/* webpackChunkName: "about" */ './views/Management/service/add.vue'),
+    needLogin: true
+  },
+
+  {
     path: '/management/product/list',
-    name: 'banner-index',
+    name: 'product-index',
     component: () => import(/* webpackChunkName: "about" */ './views/Management/product/index.vue'),
     needLogin: true
   },
@@ -96,7 +119,7 @@ const routes =  [
   // 添加产品
   {
     path: '/management/product/add',
-    name: 'banner-add',
+    name: 'product-add',
     component: () => import(/* webpackChunkName: "about" */ './views/Management/product/add.vue'),
     needLogin: true
   },

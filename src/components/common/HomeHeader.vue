@@ -38,7 +38,7 @@ export default {
         },
         {
           name: 'Service & Support',
-          url: '/nothing'
+          url: '/service'
         },
         {
           name: 'Contact Us',

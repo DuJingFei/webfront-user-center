@@ -46,7 +46,6 @@ export default {
       this.$fetch.get(this.$api.PRODUCT_DETAIL, { id: pId }).then(res => {
         if (res.errorCode === 0) {
           this.productDetail = res.data;
-          debugger
         }
       })
     },

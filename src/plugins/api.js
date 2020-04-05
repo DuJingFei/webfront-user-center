@@ -40,6 +40,14 @@ const API_URL = {
     CONTACT_DETAIL: '/api/contact/{id}',
 
     CONTACT_LIST: '/api/contact/list',
+
+    // service & support
+    SERVICE_LIST: '/api/service/list',
+
+    SERVICE_DETAIL: '/api/service/{id}',
+
+    SERVICE_ADD: '/api/service/add',
+    
 }
 
 Vue.prototype.$api = API_URL

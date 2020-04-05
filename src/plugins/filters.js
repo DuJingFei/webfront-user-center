@@ -37,3 +37,17 @@ Vue.filter('cut', function(value, max) {
     value = value.substr(0, max);
     return value + (' …');
 });
+
+Vue.prototype.getFileType = function(path) {
+  if ( !path || typeof path != 'string') return
+  if (path.indexOf('docx') != -1 || path.indexOf('doc') != -1) {
+    return 'icon-word'
+  }
+  if (path.indexOf('lsx') != -1 || path.indexOf('xlsx') != -1) {
+    return 'icon-excel'
+  }
+  if (path.indexOf('pdf') != -1) {
+    return 'icon-pdf'
+  }
+  return 'icon-file'
+}

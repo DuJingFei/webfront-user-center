@@ -129,7 +129,6 @@ export default {
         headers: { "content-type": "multipart/form-data" }
       }).then(res => {
         if (res.errorCode === 0) {
-            debugger
             _this.content = `${_this.content}<img src='${res.data.path}' />`
           // this.detail.path = res.data.path;
         }
