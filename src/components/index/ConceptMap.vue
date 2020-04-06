@@ -99,6 +99,7 @@ export default {
    background-size: contain;
    margin: 30px auto;
    position: relative;
+
    .hya-solar {
       width: 32px;
       height: 32px;
@@ -125,6 +126,9 @@ export default {
       right: 578px;
       top: 296px;
    }
+}
+.conceptmap-popover {
+  color: #FFFFFF !important;
 }
 .conceptmap-popover-content {
   img {

@@ -117,13 +117,17 @@ export default {
   },
   methods: {
     submitInfo(detail) {
+      let _this = this;
       this.$refs[detail].validate((valid) => {
         if (!valid) {
-          return this.$message.error('请完善必填属性');
+          return this.$message.error('please ');
         }
         this.$fetch.post(this.$api.CONTACT, this.detail).then(res => {
           if (res.errorCode == 0) {
-  
+            this.$message.success('thank you for contact us');
+            setTimeout(function() {
+              _this.$router.push('/');
+            },2000)
           }
         })
       })
