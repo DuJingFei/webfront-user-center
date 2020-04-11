@@ -115,6 +115,11 @@ export default {
       }
     }
   },
+  mounted() {
+    if (this.$route.query && this.$route.query.model) {
+      this.detail.productmodel = encodeURI(this.$route.query.model); 
+    }
+  },
   methods: {
     submitInfo(detail) {
       let _this = this;
