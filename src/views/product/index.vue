@@ -9,6 +9,11 @@
         <div class="product-content">
            {{ productDetail.content }}
         </div>
+        <el-button 
+          style="margin-top:20px"
+          type="primary"
+          @click='goContact(productDetail.model)'
+        >contact</el-button>
       </section>
     </div>
     <el-tabs v-model="activeName" type="border-card" @tab-click="handleClick">
@@ -50,7 +55,10 @@ export default {
       })
     },
     handleClick(tab, event) {
-        console.log(tab, event);
+      console.log(tab, event);
+    },
+    goContact(model) {
+      location.href = `/contactus?model=${model}`
     }
   }
 }

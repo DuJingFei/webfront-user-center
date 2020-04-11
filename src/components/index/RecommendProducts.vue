@@ -4,20 +4,19 @@
          <span>RECOMMEND PRODUCTS</span>
        </h4>
        <div class="great-examples">
-    
        <el-row :gutter="20" class="main-center">
           <el-col
             class="example-item"
-            v-for="(item,i) in examples" 
+            v-for="(item,i) in recommendList" 
             :key="i"
             :span="6"
           >
-            <div class="item-content">
-              <header :style="{'backgroundImage': `url(${item.img}`}"></header>
+            <div class="item-content" @click="goDetail(item.id)">
+              <header :style="{'backgroundImage': `url(${item.image}`}"></header>
               <div class="product-content">
                 <a class="product-name">{{item.name}}</a>
                 <ul class="product-descs">
-                <li class="desc-item" v-for="(desc,d) in item.desc" :key="d">{{desc}}</li>
+                <p class="product-description">{{ item.content }}</p>
                 </ul>
               </div>
             </div>
@@ -31,53 +30,23 @@ export default {
    name: 'recommend-products',
    data() {
        return {
-           examples: [
-                {
-                    id: 1212,
-                    img: require('../../assets/images/recommend-product.jpg'),
-                    name: '伺服电机',
-                    desc: [
-                        '灵巧紧凑，安装方式多样',
-                        '书本化设计，节省安装空间',
-                        '藏线设计，走线更加方便',
-                        '组网设计、性能强大'
-                    ]
-                },
-                {
-                    id: 1212,
-                    img: require('../../assets/images/recommend-product.jpg'),
-                    name: '伺服电机',
-                    desc: [
-                        '灵巧紧凑，安装方式多样',
-                        '书本化设计，节省安装空间',
-                        '藏线设计，走线更加方便',
-                        '组网设计、性能强大'
-                    ]
-                },
-                {
-                    id: 1212,
-                    img: require('../../assets/images/recommend-product.jpg'),
-                    name: '伺服电机',
-                    desc: [
-                        '灵巧紧凑，安装方式多样',
-                        '书本化设计，节省安装空间',
-                        '藏线设计，走线更加方便',
-                        '组网设计、性能强大'
-                    ]
-                },
-                {
-                    id: 1212,
-                    img: require('../../assets/images/recommend-product.jpg'),
-                    name: '伺服电机',
-                    desc: [
-                        '灵巧紧凑，安装方式多样',
-                        '书本化设计，节省安装空间',
-                        '藏线设计，走线更加方便',
-                        '组网设计、性能强大'
-                    ]
-                }
-            ]
+         recommendList: []
        }
+   },
+   created() {
+     this.getRecommendList();
+   },
+   methods: {
+     getRecommendList() {
+       this.$fetch.get(`${this.$api.PRODUCT_LIST}?recommend=1`).then(res => {
+        if (res.errorCode == 0) {
+          this.recommendList = res.data;
+        }
+      })
+     },
+     goDetail(id) {
+       location.href = `/product/${id}`
+     }
    }
 }
 </script>
@@ -93,6 +62,7 @@ export default {
       .item-content {
         background-color: #FFF;
         margin-bottom: 10px;
+        cursor: pointer;
       > header {
           height: 250px;
           background-position: center;

@@ -25,6 +25,11 @@
           </el-option>
         </el-select>
       </el-form-item>
+      
+      <el-form-item label="是否推荐至首页" prop="recommend">
+        <el-checkbox v-model="product.recommend">推荐</el-checkbox>
+      </el-form-item>
+
       <el-form-item label="型号" prop="model">
         <el-input 
           v-model="product.model"
@@ -95,6 +100,7 @@ export default {
         name: '',
         model: '',
         type: '',
+        recommend:'',
         image: '',
         content: '',
         specification: '',
@@ -139,8 +145,8 @@ export default {
       let _this = this;
       this.$fetch.get(this.$api.PRODUCT_DETAIL, { id: id }).then(res => {
         if (res.errorCode === 0) {
-      
           _this.product = res.data;
+          _this.product.recommend = Boolean( _this.product.recommend)
           this.reload1 = 2;
           this.reload2 =2;
           this.reload3 =2;
@@ -166,6 +172,7 @@ export default {
         })
     },
     submit(product) {
+      debugger
       let _this = this;
       this.$refs[product].validate((valid) => {
         if (!valid) {

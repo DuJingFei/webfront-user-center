@@ -1,7 +1,8 @@
 <template>
   <header class="home-header">
     <div class="main">
-      <a style="display:inline-block;" href="/">
+      <a style="display:inline-block;cursor:pointer" 
+      :href="$route.path.indexOf('/management') > -1 ? '/management': '/'">
         <img class="logo-image" src="@/assets/images/logo.jpg" alt="hya-alt" title="hya" >
       </a>
       <nav>
@@ -50,7 +51,7 @@ export default {
   methods: {
     view(itemId) {
       
-    }
+    },
   }
 };
 </script>

@@ -38,6 +38,7 @@ Vue.filter('cut', function(value, max) {
     return value + (' …');
 });
 
+
 Vue.prototype.getFileType = function(path) {
   if ( !path || typeof path != 'string') return
   if (path.indexOf('docx') != -1 || path.indexOf('doc') != -1) {
